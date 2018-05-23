@@ -10,3 +10,9 @@ Run steps PRODUCTION:
 
 Run steps DEVELOPMENT:
 1. npm run start-dev
+
+Tools used:
+1. Webpack version 4
+2. React Router Redux
+3. React Redux
+4. React
