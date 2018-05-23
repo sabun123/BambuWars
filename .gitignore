@@ -1,5 +1,8 @@
 #
 /node_modules
 
+# Built files
+/dist
+
 # Dynamically created files #
 package-lock.json
