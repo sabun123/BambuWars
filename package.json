@@ -1,0 +1,19 @@
+{
+  "name": "bambuwars",
+  "version": "1.0.0",
+  "description": "to test or not to test a frontend developer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sabun123/BambuWars.git"
+  },
+  "author": "Yusuf Ismail Bin Shukor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sabun123/BambuWars/issues"
+  },
+  "homepage": "https://github.com/sabun123/BambuWars#readme"
+}
