@@ -34,39 +34,28 @@ module.exports = {
             },
             {
                 test: /\.png$/,
-                use: {
-                    loader: "url-loader"
-                }
+                use: ["url-loader"]
+                
             },
             {
                 test: /\.jpg$/,
-                use: {
-                    loader: "file-loader"
-                }
+                use: [ "file-loader"]
             },
             {
                 test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
-                use: {
-                    loader: 'url-loader?limit=10000&mimetype=application/font-woff'
-                }
+                use: ['url-loader']
             },
             {
                 test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-                use: {
-                    loader: 'url-loader?limit=10000&mimetype=application/octet-stream'
-                }
+                use: [ 'url-loader']
             },
             {
                 test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-                use: {
-                    loader: 'file-loader'
-                }
+                use: ['url-loader']
             },
             {
                 test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-                use: {
-                    loader: 'url-loader?limit=10000&mimetype=image/svg+xml'
-                }
+                use: [ 'url-loader']
             }
 
         ]

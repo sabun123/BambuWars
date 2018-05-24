@@ -16,3 +16,4 @@ Tools used:
 2. React Router Redux
 3. React Redux
 4. React
+5. Bootstrap 3.3.7
