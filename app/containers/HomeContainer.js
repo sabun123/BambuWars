@@ -1,5 +1,8 @@
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import Home from '../components/Home';
+
+import {fetchStarship} from '../actions/Actions'
 
 // Push variables from state into props
 const mapStateToProps = (state, props) => {
@@ -11,7 +14,7 @@ const mapStateToProps = (state, props) => {
 // Push actions into props
 const mapDispatchToProps = (dispatch, props) => {
     return {
-
+        onfetchStarship: fetchStarship
     }
 }
 

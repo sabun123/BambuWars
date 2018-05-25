@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/sabun123/BambuWars#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "bootstrap": "^3.3.7",
     "history": "^4.7.2",
     "jquery": "^3.3.1",
@@ -28,7 +29,9 @@
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",
     "react-router-redux": "^5.0.0-alpha.9",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^8.5.0",
