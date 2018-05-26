@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import HomeContainer from '../app/containers/HomeContainer';
 import PeopleContainer from '../app/containers/PeopleContainer';
 import NavBarContainer from '../app/containers/NavBarContainer';
+import AboutContainer from '../app/containers/AboutContainer';
 
 import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router';
@@ -26,6 +27,7 @@ ReactDOM.render(
                 <Switch>
                     <Route exact path="/" component={HomeContainer} />
                     <Route exact path="/people" component={PeopleContainer} />
+                    <Route exact path="/about" component={AboutContainer} />
                 </Switch>
             </div>
         </ConnectedRouter>

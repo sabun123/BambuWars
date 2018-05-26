@@ -7,10 +7,10 @@ class NavBar extends React.Component{
         super(props)
     }
 
-    handlePeopleClick = () => {
+    handleClick = (path) => {
         // Redirect to People component
         this.props.history.push({
-            pathname:'/people'
+            pathname:path
         })
     }
 
@@ -23,10 +23,10 @@ class NavBar extends React.Component{
                         </Navbar.Brand>
                     </Navbar.Header>
                     <Nav>
-                        <NavItem onClick={this.handlePeopleClick}>
+                        <NavItem onClick={() => {this.handleClick('/people')}}>
                             People
                         </NavItem>
-                        <NavItem>
+                        <NavItem onClick={() => {this.handleClick('/about')}}>
                             About
                         </NavItem>
                     </Nav>
