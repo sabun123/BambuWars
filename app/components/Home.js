@@ -7,10 +7,10 @@ class Home extends React.Component {
         super(props);
     }
 
-    nextClicked = () => {
-        // test actions
-        this.props.fetchStarship();
-        this.props.startApp();
+    startClicked = () => {
+        this.props.history.push({
+            pathname:'/people'
+        })
     }
 
     render() {
@@ -18,10 +18,15 @@ class Home extends React.Component {
             <div>
                 <div className="container" style={{ textAlign: "center" }}>
                     <Panel >
-                        <Panel.Heading>PLACEHOLDER</Panel.Heading>
-                        <Panel.Body>PLACEHOLDER</Panel.Body>
+                        <Panel.Heading>How to use Bambu Wars</Panel.Heading>
+                        <Panel.Body>
+                            <p>Pretty straightforward SPA. 
+                                Click on "People" in the Navbar above to access all the people from SWAPI.co</p>
+                            <p>Data is paginated, so you will need to click "NEXT" or "PREV" to view all the people from the Star Wars Universe.</p>
+                            <p>Each name listed is clickable. Clicking a name will open a modal that will display the information of that person from the Star Wars Universe.</p>
+                        </Panel.Body>
                     </Panel>
-                    <Button onClick={this.nextClicked} >NEXT</Button>
+                    <Button onClick={this.startClicked} >START</Button>
                 </div>
             </div>
         )

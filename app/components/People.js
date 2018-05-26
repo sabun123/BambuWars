@@ -1,11 +1,15 @@
 import React from 'react';
-import { Panel, Button, ListGroup, ListGroupItem } from 'react-bootstrap';
-import { ScaleLoader } from 'react-spinners';
+import { Panel, Button, ListGroup, ListGroupItem, Modal, Grid, Row, Col } from 'react-bootstrap';
+import { ScaleLoader, BarLoader } from 'react-spinners';
 
 class People extends React.Component {
 
     constructor(props) {
         super(props)
+        this.state = {
+            showModal: false,
+            selectedPerson: {}
+        }
     }
 
     componentDidMount() {
@@ -13,6 +17,15 @@ class People extends React.Component {
         if (this.props.data && Object.keys(this.props.data).length <= 0) {
             this.props.fetchAllPeople();
         }
+    }
+
+    okClicked = () => {
+        this.setState({ showModal: false })
+    }
+
+    personClicked = (person) => {
+        this.props.fetchPersonDetails(person);
+        this.setState({ showModal: true, selectedPerson: person })
     }
 
     renderList = () => {
@@ -24,7 +37,7 @@ class People extends React.Component {
 
             people.forEach((person, index) => {
                 listItems.push(
-                    <ListGroupItem key={index}>
+                    <ListGroupItem key={index} onClick={() => { this.personClicked(person) }}>
                         {person.name}
                     </ListGroupItem>
                 )
@@ -62,6 +75,42 @@ class People extends React.Component {
         }
     }
 
+    renderTable = () => {
+
+        let dataGrid = [];
+
+        Object.keys(this.state.selectedPerson).forEach((key, index) => {
+            dataGrid.push(
+                <tr key={index}>
+                    <th>{key}</th>
+                    <td>{this.state.selectedPerson[key]} </td>
+                </tr>
+            )
+        })
+
+
+
+        return dataGrid;
+    }
+
+    renderCheck = () => {
+        if (this.props.personData && Object.keys(this.props.personData).length > 0 && !this.props.loadingDetails) {
+            return this.renderTable();
+        } else if (this.props.loadingDetails) {
+            return <tr style={{ textAlign: '-webkit-center' }}>
+                <td>
+                    <BarLoader
+                        color={'#000000'}
+                        loading={true}
+                    />
+                    <p style={{marginTop:'5%'}}>{this.props.loadingStatus}</p>
+                </td>
+            </tr>
+        } else {
+            return null;
+        }
+    }
+
     render() {
         return (
             <div className="container" style={{ textAlign: "center" }}>
@@ -75,6 +124,25 @@ class People extends React.Component {
                 </Panel>
                 {this.renderPrev()}
                 {this.renderNext()}
+                <Modal show={this.state.showModal}>
+                    <Modal.Header>
+                        <Modal.Title>{this.state.selectedPerson.name}</Modal.Title>
+                    </Modal.Header>
+
+                    <Modal.Body>
+                        <div className='container-fluid' style={{ overflowX: 'auto' }}>
+                            <table className='table'>
+                                <tbody>
+                                    {this.renderCheck()}
+                                </tbody>
+                            </table>
+                        </div>
+                    </Modal.Body>
+
+                    <Modal.Footer>
+                        <Button bsStyle="primary" onClick={this.okClicked} disabled={this.props.loadingDetails}>OK</Button>
+                    </Modal.Footer>
+                </Modal>
             </div>
 
         )

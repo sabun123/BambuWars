@@ -18,7 +18,7 @@ class NavBar extends React.Component{
         return (
             <Navbar inverse>
                     <Navbar.Header>
-                        <Navbar.Brand>
+                        <Navbar.Brand style={{color:'yellow'}} onClick={() => {this.handleClick('/')}}>
                             Bambu Wars
                         </Navbar.Brand>
                     </Navbar.Header>

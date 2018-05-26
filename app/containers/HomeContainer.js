@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import Home from '../components/Home';
-import {fetchStarship,startApp} from '../actions/Actions'
 
 // Push variables from state into props
 const mapStateToProps = (state, props) => {
@@ -11,8 +10,6 @@ const mapStateToProps = (state, props) => {
 }
 
 const actions = {
-    fetchStarship,
-    startApp
 }
 
 // Finally pass the state vars and actions through props to the actual component
