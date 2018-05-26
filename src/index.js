@@ -12,9 +12,6 @@ import { ConnectedRouter } from 'react-router-redux';
 // Bootstrap CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// React-Bootstrap-table2 CSS
-import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
-
 import createHistory from 'history/createBrowserHistory';
 import store from './store';
 const history = createHistory();
