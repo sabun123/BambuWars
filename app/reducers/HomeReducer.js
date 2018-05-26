@@ -1,35 +1,42 @@
 import { 
     APP_START,
     REQUEST_STARSHIP,
-    RECEIVE_STARSHIP
+    RECEIVE_STARSHIP,
+    REQUEST_ALL_PEOPLE,
+    RECEIVE_ALL_PEOPLE
  } 
 from '../actions/Actions';
 
 const initialState = {
     started: false,
-    currentSWData: {}
+    currentSWData: {},
+    requestInProgress: false
 }
 
-export function startApp(state = initialState, action) {
-    switch (action) {
-        case APP_STARTED:
+export function getSWCharacterInfo(state = initialState, action) {
+    switch(action.type) {
+        case APP_START:
             return Object.assign({}, state, {
                 started: action.started
             })
             break;
-        default:
-            return state
-    }
-}
-
-export function getSWCharacterInfo(state = initialState, action) {
-    switch(action) {
         case REQUEST_STARSHIP:
             return state;
             break;
         case RECEIVE_STARSHIP:
             return Object.assign({}, state, {
                 currentSWData: action.shipInfo
+            })
+            break;
+        case REQUEST_ALL_PEOPLE:
+            return Object.assign({}, state, {
+                requestInProgress: true
+            })
+            break;
+        case RECEIVE_ALL_PEOPLE:
+            return Object.assign({}, state, {
+                requestInProgress: false,
+                currentSWData: action.peopleData
             })
             break;
         default:

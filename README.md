@@ -17,3 +17,7 @@ Tools used:
 3. React Redux
 4. React
 5. Bootstrap 3.3.7
+6. Babel (utilizing ES6 so we need a transpiler)
+
+BambuWars utilizes the Container-Component pattern.
+This allows for cleaner separation of view from data management.

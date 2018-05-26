@@ -3,11 +3,7 @@ import createHistory from 'history/createBrowserHistory';
 import { ConnectedRouter, routerReducer, routerMiddleware, push } from 'react-router-redux';
 import reduxThunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
-import { getSWCharacterInfo } from '../app/reducers/HomeReducer';
-import red from '../app/reducers/HomeReducer';
-
-console.log("what is reducers: ", getSWCharacterInfo)
-console.log("what is reducers: ", red)
+import rootReducer from '../app/reducers/RootReducer';
 
 // create a logger, I need to see state during dev
 const logger = createLogger({
@@ -21,7 +17,7 @@ const middleware = routerMiddleware(history);
 
 const store = createStore(
     combineReducers({
-        ...getSWCharacterInfo,
+        rootReducer,
         router: routerReducer
     }),
     applyMiddleware(middleware, reduxThunk, logger)
